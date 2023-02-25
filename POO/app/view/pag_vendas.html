@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <title>Landing Page</title>
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      text-decoration: none;
+    }
+
+    body {
+      font-size: 100%;
+      background-color: aliceblue;
+    }
+
+    .cabecalho {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+      padding: 24px;
+    }
+
+    .cabecalho-imagem {
+      height: 72px;
+      margin-right: 710px;
+    }
+
+    .cabecalho-menu {
+      display: flex;
+      gap: 32px;
+    }
+
+    .cabecalho-menu-item {
+      font-family: 'Sarala', sans-serif;
+      color: #000000;
+      font-weight: 400;
+      font-size: 18px;
+      padding: auto;
+    }
+
+    .conteudo {
+      margin-bottom: 48px;
+      border-top: 0px solid #3051e4;
+    }
+
+    .conteudo-principal {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-around;
+    }
+
+    .conteudo-principal-escrito {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .conteudo-principal-escrito-titulo {
+      font-weight: 400;
+      font-size: 64px;
+      color: #000000;
+    }
+
+    .conteudo-principal-escrito-subtitulo {
+      font-family: 'Sarala', sans-serif;
+      font-weight: 400;
+      font-size: 24px;
+      color: #000000;
+    }
+
+    .conteudo-principal-escrito-botao {
+      background-color: #3051e4;
+      width: 180px;
+      height: 60px;
+      border: none;
+      box-shadow: 4px 5px 4px rgba(0, 0, 0, 0.25);
+      border-radius: 20px;
+      font-family: 'Sarala', sans-serif;
+      font-weight: 400;
+      font-size: 24px;
+      color: #ffffff;
+    }
+
+    .conteudo-principal-escrito-botao:hover {
+      background-color: rgba(0, 0, 0, 0.53);
+    }
+
+    .conteudo-principal-imagem {
+      height: 430px;
+    }
+
+    .conteudo-secundario {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      margin-top: 48px;
+      margin-left: 40px;
+      margin-right: 40px;
+    }
+
+    .conteudo-secundario-titulo {
+      border-top: 0.4px solid #3051e4;
+      padding-top: 48px;
+      font-weight: 400;
+      font-size: 24px;
+      color: #000000;
+      margin-bottom: 16px;
+    }
+
+    .conteudo-secundario-paragrafo {
+      font-family: 'Sarala', sans-serif;
+      font-weight: 300;
+      font-size: 18px;
+      color: #000000;
+      margin-left: 150px;
+      margin-right: 120px;
+    }
+
+    .rodape {
+      padding: 32px;
+      border-top: 0.4px solid #3051e4;
+    }
+
+    .rodape-imagem {
+      height: 48px;
+      display: block;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+
+<body>
+  <header class="cabecalho">
+    <img class="cabecalho-imagem" src="logo.png" alt="Logo do supermercado">
+    <nav class="cabecalho-menu">
+      <a class="cabecalho-menu-item" href="">Sobre nós</a>
+      <a class="cabecalho-menu-item" href="">Documentação</a>
+      <a href="login" class="cabecalho-menu-item">Login</a>
+    </nav>
+  </header>
+
+  <main class="conteudo">
+    <section class="conteudo-principal">
+      <div class="conteudo-principal-escrito">
+        <h1 class="conteudo-principal-escrito-titulo">DataMind</h1>
+        <h2 class="conteudo-principal-escrito-subtitulo">Transformando seu mercado com dados.</h2>
+        <a href="cadastro"><button class="conteudo-principal-escrito-botao">Cadastre-se!</button></a>
+      </div>
+      <img class="conteudo-principal-imagem" src="dash1.jpg" alt="Imagem">
+    </section>
+
+    <section class="conteudo-secundario">
+      <h3 class="conteudo-secundario-titulo">O que nós fazemos por você?</h3>
+      <p class="conteudo-secundario-paragrafo">1. <strong>Conhecimento aprofundado dos hábitos de compra dos
+          clientes:</strong> Através da análise de dados, podemos fornecer uma visão detalhada dos hábitos de compra dos
+        clientes, incluindo padrões de compra, horários de pico, produtos mais vendidos e preferencias de marca.</p>
+      <p class="conteudo-secundario-paragrafo">2. <strong>Aumento das vendas e lucro:</strong> Analisando dados de
+        vendas, podemos identificar oportunidades de aumentar as vendas e o lucro. Isso pode incluir sugestões para
+        ofertas e promoções, alinhamento de estoque com os padrões de compra dos clientes e otimização de preços para
+        maximizar lucro.</p>
+      <p class="conteudo-secundario-paragrafo">3. <strong>Tomada de decisão baseada em dados:</strong> Em vez de basear
+        decisões comerciais em suposições ou intuicoes, nossa ciência de dados oferece insights precisos para apoiar a
+        tomada de decisão. Utilizamos dashboards inteligentes, com informacoes variadas e personalizaveis, que vao de
+        acordo
+        suas necessidades.</p>
+    </section>
+  </main>
+</body>
+
+</html>

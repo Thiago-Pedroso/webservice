@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>Venda PDV</title>
+  <style>
+    body {
+      background-color: aliceblue;
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #3498db;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      margin-bottom: 20px;
+    }
+
+    label {
+      font-size: 16px;
+      width: 200px;
+    }
+
+    form select,
+    form input[type="text"],
+    form input[type="number"] {
+      padding: 10px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+
+    form button[type="submit"] {
+      transition-duration: 0.4;
+      font-size: 16px;
+      padding: 10px 20px;
+      width: 200px;
+      border-radius: 5px;
+
+    }
+
+    form button:hover[type="submit"] {
+      background-color: #34db34;
+      color: #fff;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 200px
+    }
+
+    form button2 {
+      transition-duration: 0.4;
+      font-size: 16px;
+      padding: 10px 20px;
+      width: 200px;
+      border: 1px solid #333;
+      border-radius: 5px;
+      margin-top: 10px;
+    }
+
+    form button2:hover {
+      background-color: #ff0000;
+      color: #fff;
+      padding: 10px 20px;
+      cursor: pointer;
+      font-size: 16px;
+      width: 200px
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+
+    }
+
+    table th,
+    table td {
+      border: 1px solid #333;
+      padding: 10px;
+      text-align: left;
+    }
+
+    footer {
+      background-color: #3498db;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <h1>Supermercado SmartBig</h1>
+  </header>
+  <main>
+    <div style="display: inline-flex;">
+      <form action="/cadastrar_produto" method="post">
+        <h2 style="width: 600px;">Informações do Produto</h2>
+        <input type="text" name="nome" placeholder="Nome do Produto">
+        <label for="frutas">Tipo do produto:</label>
+        <select type="text" name="tipo" placeholder="Tipo do produto">
+          <option value="laranja">Açougue</option>
+          <option value="morango">Cozinha</option>
+          <option value="uva">Produtos de limpeza</option>
+          <option value="maça">Alimentos</option>
+          <option value="banana">Bebidas</option>
+          <option value="banana">Higiene Pessoal</option>
+          <option value="banana">Pet shop</option>
+        <input type="number" name="preco" placeholder="Preço">
+        <input type="number" name="quantidade" placeholder="Quantidade">
+        <button type="submit">Adicionar</button>
+      </form>
+      <form style="margin-left: 50%;" action="/cadastrar_compra" method="post">
+        <h2 style="width: 600px;">Informações do Cliente</h2>
+        <input type="text" name="cpf" placeholder="CPF">
+        <input type="text" name="genero" placeholder="Gênero">
+        <input type="number" name="idade" placeholder="Idade">
+        <button type="submit">FINALIZAR COMPRA</button>
+      </form>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Nome</th>
+          <th>Preço</th>
+          <th>Quantidade</th>
+          <th>Total</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% set preco_totais = [] %}
+        {% for produto in produtos %}
+        <tr>
+          <td>{{ produto.nome }}</td>
+          <td>{{ produto.preco }}</td>
+          <td>{{ produto.quantidade }}</td>
+          <td>R$ {{ produto.preco|preco_total(produto.quantidade) }}</td>
+        </tr>
+        {% set preco_totais = preco_totais.append(produto.preco|preco_total(produto.quantidade)) %}
+        {% endfor %}
+      </tbody>
+    </table>
+    <div>
+      <h2>Total</h2>
+      <p>R$ {{ preco_totais|soma }}</p>
+    </div>
+    <div>
+      <table>
+        <thead>
+          <tr>
+            <th>Data</th>
+            <th>CPF do cliente</th>
+            <th>Valor Final</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for cliente in clientes %}
+          <tr>
+            <td>{{ cliente.data }}</td>
+            <td>{{ cliente.cpf }}</td>
+            <td>R$ {{ cliente.valor_total }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <form>
+        <button2 onclick="window.location.href = 'dash'" type="submit">Dashboard</button2>
+      </form>
+    </div>
+  </main>
+  <footer>
+    <p>&copy; 2023 Venda PDV</p>
+  </footer>
+</body>
+
+</html>
